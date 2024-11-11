@@ -69,3 +69,38 @@ function getHumanChoice() {
 
 
 }
+
+// Play a Round - Function which takes the choices of the players and look who is winning
+function playRound(humanChoice, computerChoice) {
+
+//If HumanChoice is Scissors and computerChoice is Rock
+//If HumanChoice is Paper and CompiterChoice is Scissors
+//If HumanChoice is Rock and computerChoice is Paper
+    //Then Computer wins, therefore increment computerWins and alert the winner
+if ((humanChoice === rock && computerChoice === paper) || (humanChoice === scissors && computerChoice === rock) || (humanChoice === paper && computerChoice === scissors)) {
+    computerScore++;
+    alert(`You loose, ${computerChoice} beats ${humanChoice}!`);
+} 
+
+//If humanChoice is Rock and computerChoice is Scissors 
+//If Humanchoche is Scissors and computerChoice is Paper
+//If Humanchoice is Paper and ComputerChoice is Rock
+    //Then Player wins, increment playerWins and alert the winner
+
+    else if ((humanChoice === rock && computerChoice === scissors) || (humanChoice === scissors && computerChoice === paper) || (humanChoice === paper && computerChoice === rock))
+{
+    humanScore++;
+    alert(`You win, ${humanChoice} beats ${computerChoice}!`);
+
+} 
+//If the two choices are the same, the game ends with a tie, alert that nobodys a winner
+
+else {
+    alert(`Tie! ${humanChoice} vs ${computerChoice}!`);
+}
+}
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
