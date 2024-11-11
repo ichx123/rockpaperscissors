@@ -4,6 +4,10 @@ const rock = "Rock";
 const paper = "Paper";
 //Create Variable "scissors" for string "Scissors"
 const scissors = "Scissors";
+//Create Variable "humanScore" to track the wins of the playser
+let humanScore = 0;
+//Create Variable "computerScore" to track the wins of the computer
+let computerScore = 0;
 
 // Get Choice From Computer - Function
 function getComputerChoice() {
