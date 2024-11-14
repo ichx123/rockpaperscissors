@@ -91,10 +91,6 @@ function playGame() {
     //Declare a Winner with the Function "declareWinner"
     declareWinner(humanScore, computerScore);
 
-    //Set Scores to 0, if you want to start a new game
-    humanScore = 0;
-    computerScore = 0;
-
 
     // Play a Round - Function which takes the choices of the players and look who is winning
     function playRound(humanChoice, computerChoice) {
