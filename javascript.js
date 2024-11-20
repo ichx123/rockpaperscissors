@@ -14,6 +14,21 @@ let humanScore = 0;
 //Create Variable "computerScore" to track the wins of the computer
 let computerScore = 0;
 
+//Buttons
+const buttonRock = document.querySelector("#rock");
+const buttonPaper = document.querySelector("#paper");
+const buttonScissors = document.querySelector("#scissors");
+
+buttonRock.addEventListener("click", () => {
+    playRound(rock);
+});
+buttonPaper.addEventListener("click", () => {
+    playRound(paper);
+});
+buttonScissors.addEventListener("click", () => {
+    playRound(scissors);
+});
+
 // Get Choice From Computer - Function
 function getComputerChoice() {
 
