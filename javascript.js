@@ -5,6 +5,14 @@ const paper = "Paper";
 //Create Variable "scissors" for string "Scissors"
 const scissors = "Scissors";
 
+//create Variable "humanSelection" to store the player-choice
+let humanSelection = null;
+
+
+//Create Variable "humanScore" to track the wins of the player
+let humanScore = 0;
+//Create Variable "computerScore" to track the wins of the computer
+let computerScore = 0;
 
 // Get Choice From Computer - Function
 function getComputerChoice() {
@@ -67,15 +75,42 @@ function getHumanChoice() {
 
 }
 
+// Play a Round - Function which takes the choices of the players and look who is winning
+function playRound(humanChoice) {
+    
+    //create Variable "computerChoice" and store the result of the function "getComputerChoice"
+    const computerChoice = getComputerChoice();
+    
+    //If HumanChoice is Scissors and computerChoice is Rock
+    //If HumanChoice is Paper and CompiterChoice is Scissors
+    //If HumanChoice is Rock and computerChoice is Paper
+    //Then Computer wins, therefore increment computerWins and alert the winner
+    if ((humanChoice === rock && computerChoice === paper) || (humanChoice === scissors && computerChoice === rock) || (humanChoice === paper && computerChoice === scissors)) {
+        computerScore++;
+        alert(`You loose, ${computerChoice} beats ${humanChoice}!`);
+    }
+
+    //If humanChoice is Rock and computerChoice is Scissors 
+    //If Humanchoche is Scissors and computerChoice is Paper
+    //If Humanchoice is Paper and ComputerChoice is Rock
+    //Then Player wins, increment playerWins and alert the winner
+
+    else if ((humanChoice === rock && computerChoice === scissors) || (humanChoice === scissors && computerChoice === paper) || (humanChoice === paper && computerChoice === rock)) {
+        humanScore++;
+        alert(`You win, ${humanChoice} beats ${computerChoice}!`);
+
+    }
+    //If the two choices are the same, the round ends with a tie, alert that nobodys a winner
+
+    else {
+        alert(`Tie! ${humanChoice} vs ${computerChoice}!`);
+    }
+} // end function "playRound"
+
 
 
 //Play a Game - Funktion
 function playGame() {
-
-    //Create Variable "humanScore" to track the wins of the player
-    let humanScore = 0;
-    //Create Variable "computerScore" to track the wins of the computer
-    let computerScore = 0;
 
     //Loop for "roundsplayed" from 0 to 5
     for (let roundsPlayed = 0; roundsPlayed < 5; roundsPlayed++) {
@@ -91,37 +126,6 @@ function playGame() {
     //Declare a Winner with the Function "declareWinner"
     declareWinner(humanScore, computerScore);
 
-
-    // Play a Round - Function which takes the choices of the players and look who is winning
-    function playRound(humanChoice, computerChoice) {
-
-        //If HumanChoice is Scissors and computerChoice is Rock
-        //If HumanChoice is Paper and CompiterChoice is Scissors
-        //If HumanChoice is Rock and computerChoice is Paper
-        //Then Computer wins, therefore increment computerWins and alert the winner
-        if ((humanChoice === rock && computerChoice === paper) || (humanChoice === scissors && computerChoice === rock) || (humanChoice === paper && computerChoice === scissors)) {
-            computerScore++;
-            alert(`You loose, ${computerChoice} beats ${humanChoice}!`);
-        }
-
-        //If humanChoice is Rock and computerChoice is Scissors 
-        //If Humanchoche is Scissors and computerChoice is Paper
-        //If Humanchoice is Paper and ComputerChoice is Rock
-        //Then Player wins, increment playerWins and alert the winner
-
-        else if ((humanChoice === rock && computerChoice === scissors) || (humanChoice === scissors && computerChoice === paper) || (humanChoice === paper && computerChoice === rock)) {
-            humanScore++;
-            alert(`You win, ${humanChoice} beats ${computerChoice}!`);
-
-        }
-        //If the two choices are the same, the round ends with a tie, alert that nobodys a winner
-
-        else {
-            alert(`Tie! ${humanChoice} vs ${computerChoice}!`);
-        }
-    } // end function "playRound"
-
-
     //Declare a Winner - Function, arguments are the scores
     function declareWinner(humanScore, computerScore) {
 
@@ -132,7 +136,7 @@ function playGame() {
             alert("Tie! Nobody's a winner!")
         }
         // Else If humanScore is bigger than computerScore
-        
+
         else if (humanScore > computerScore) {
             //Then human is winner
             //Alert "You win!"
