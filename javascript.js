@@ -18,6 +18,7 @@ let computerScore = 0;
 const buttonRock = document.querySelector("#rock");
 const buttonPaper = document.querySelector("#paper");
 const buttonScissors = document.querySelector("#scissors");
+const buttonNewGame = document.querySelectorAll(".new-game"); //There are two Buttons to start a new game
 
 //EventListener for Buttons
 buttonRock.addEventListener("click", () => {
@@ -29,6 +30,9 @@ buttonPaper.addEventListener("click", () => {
 buttonScissors.addEventListener("click", () => {
     playRound(scissors);
 });
+buttonNewGame.forEach(btn => btn.addEventListener("click", () => {
+    newGame();
+}));
 
 //Result and Score-Variables for UI
 const resultText = document.querySelector(".result-text");
@@ -123,3 +127,13 @@ function declareWinner(humanScore, computerScore) {
     } //end if-clause
 } // end function declareWinner
 
+//Function to start a new game, sets back the scores and activates the buttons
+function newGame() {
+    humanScore = 0;
+    computerScore = 0;
+
+    playerScoreText.textContent = humanScore;
+    computerScoreText.textContent = computerScore;
+
+    //activateButtons
+}
