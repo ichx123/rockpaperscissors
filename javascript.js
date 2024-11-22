@@ -34,6 +34,8 @@ buttonNewGame.forEach(btn => btn.addEventListener("click", () => {
     newGame();
 }));
 
+buttonNewGame[1].classList.add("hidden");
+
 //Result and Score-Variables for UI
 const resultText = document.querySelector(".result-text");
 const playerScoreText = document.querySelector("#player-score-sum");
@@ -135,6 +137,13 @@ function declareWinner(humanScore, computerScore) {
         resultText.textContent = "You loose! Computer has won!";
 
     } //end if-clause
+
+    //Hide and Show UI-Buttons
+    buttonNewGame[1].classList.remove("hidden");
+    buttonPaper.classList.add("hidden");
+    buttonRock.classList.add("hidden");
+    buttonScissors.classList.add("hidden");
+
 } // end function declareWinner
 
 //Function to start a new game, sets back the scores and activates the buttons
@@ -149,6 +158,12 @@ function newGame() {
     iconPlayer.textContent = "❓";
 
     //activateButtons
+    buttonPaper.classList.remove("hidden");
+    buttonRock.classList.remove("hidden");
+    buttonScissors.classList.remove("hidden");
+
+    //hide newGamebutton 
+    buttonNewGame[1].classList.add("hidden");
 }
 
 //Function, to update Icon on the UI
