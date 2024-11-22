@@ -5,10 +5,6 @@ const paper = "Paper";
 //Create Variable "scissors" for string "Scissors"
 const scissors = "Scissors";
 
-//create Variable "humanSelection" to store the player-choice
-let humanSelection = null;
-
-
 //Create Variable "humanScore" to track the wins of the player
 let humanScore = 0;
 //Create Variable "computerScore" to track the wins of the computer
@@ -34,8 +30,6 @@ buttonNewGame.forEach(btn => btn.addEventListener("click", () => {
     newGame();
 }));
 
-buttonNewGame[1].classList.add("hidden");
-
 //Result and Score-Variables for UI
 const resultText = document.querySelector(".result-text");
 const playerScoreText = document.querySelector("#player-score-sum");
@@ -45,9 +39,10 @@ const computerScoreText = document.querySelector("#computer-score-sum");
 const iconPlayer = document.querySelector("#icon-player");
 const iconComputer = document.querySelector("#icon-computer");
 
-//Set Default Icons
+//Set Default Icons and Hide "New Game Button"
 iconPlayer.textContent = "❓"; 
 iconComputer.textContent = "❓";
+buttonNewGame[1].classList.add("hidden");
 
 // Get Choice From Computer - Function
 function getComputerChoice() {
@@ -164,6 +159,9 @@ function newGame() {
 
     //hide newGamebutton 
     buttonNewGame[1].classList.add("hidden");
+
+    //Reset resultText to default
+    resultText.textContent = "Select your Choice!"
 }
 
 //Function, to update Icon on the UI
