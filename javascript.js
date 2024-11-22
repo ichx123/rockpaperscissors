@@ -39,6 +39,14 @@ const resultText = document.querySelector(".result-text");
 const playerScoreText = document.querySelector("#player-score-sum");
 const computerScoreText = document.querySelector("#computer-score-sum");
 
+//Icon-Variables
+const iconPlayer = document.querySelector("#icon-player");
+const iconComputer = document.querySelector("#icon-computer");
+
+//Set Default Icons
+iconPlayer.textContent = "❓"; 
+iconComputer.textContent = "❓";
+
 // Get Choice From Computer - Function
 function getComputerChoice() {
 
@@ -68,6 +76,8 @@ function playRound(humanChoice) {
     
     //create Variable "computerChoice" and store the result of the function "getComputerChoice"
     const computerChoice = getComputerChoice();
+    iconPlayer.textContent = updateIcon(humanChoice);
+    iconComputer.textContent = updateIcon(computerChoice);
     
     //If HumanChoice is Scissors and computerChoice is Rock
     //If HumanChoice is Paper and CompiterChoice is Scissors
@@ -135,5 +145,19 @@ function newGame() {
     playerScoreText.textContent = humanScore;
     computerScoreText.textContent = computerScore;
 
+    iconComputer.textContent = "❓";
+    iconPlayer.textContent = "❓";
+
     //activateButtons
+}
+
+//Function, to update Icon on the UI
+function updateIcon(choice) {
+    if (choice === rock) {
+        return "👊";
+    } else if (choice === paper) {
+        return "✋";
+    } else {
+        return "✌️";
+    }
 }
