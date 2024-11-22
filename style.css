@@ -41,7 +41,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 0px 10px 0px 10px;
-    margin-bottom: 30px;
+    margin-bottom: 70px;
 }
 
 .header-text h1 {
@@ -53,7 +53,7 @@ body {
 }
 
 .header button {
-    height: 30px;
+    height: 50px;
 }
 
 .container {
@@ -90,6 +90,16 @@ body {
 .score {
     display: flex;
     gap: 30px;
+    width: 600px;
+    justify-content: space-around;
+    margin-top: 30px;
+    border-radius: 10px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 10px;
+}
+
+.player-score p, .computer-score p {
+    text-align: center;
 }
 
 .hidden {
@@ -103,6 +113,17 @@ body {
     padding: 30px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
  
+}
+
+.playerbuttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 620px;
+}
+
+.playerbuttons button {
+    flex-grow: 1;
 }
 
 button {
@@ -130,3 +151,8 @@ button:hover {
   transition-duration: .1s;
 }
 
+.footer {
+    font-size: 13px;
+    text-align: center;
+    margin-top: 80px;
+}
